@@ -16,3 +16,4 @@ zig build # then run zig-out/zig-gp32.fxe with geepee32
 
 - [gp32-examples](https://github.com/devkitPro/gp32-examples)
 - [libmirko](https://github.com/devkitPro/libmirko)
+- `mame gp32 -memc <smc file>`, how can we convert `.fxe` to `.smc`?
