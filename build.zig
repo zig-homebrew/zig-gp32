@@ -12,6 +12,8 @@ pub fn build(b: *std.build.Builder) void {
     obj.linkLibC();
     obj.setLibCFile(std.build.FileSource{ .path = "libc.txt" });
     obj.addIncludeDir(devkitpro ++ "/libmirko/include");
+    obj.addIncludeDir(devkitpro ++ "/portlibs/gp32/include");
+    obj.addIncludeDir(devkitpro ++ "/portlibs/armv4/include");
     obj.setTarget(.{
         .cpu_arch = .thumb,
         .os_tag = .freestanding,
@@ -29,6 +31,8 @@ pub fn build(b: *std.build.Builder) void {
         "-specs=" ++ devkitpro ++ "/devkitARM/arm-none-eabi/lib/gp32.specs",
         "zig-out/zig-gp32.o",
         "-L" ++ devkitpro ++ "/libmirko/lib",
+        "-L" ++ devkitpro ++ "/portlibs/gp32/lib",
+        "-L" ++ devkitpro ++ "/portlibs/armv4/lib",
     } ++ flags ++ .{
         "-o",
         "zig-out/zig-gp32.elf",
